@@ -3,7 +3,10 @@ import React from 'react';
 import GiphyItem from './GiphyItem';
 
 const Giphys = (props) => {
-	
+  
+  // const giphyArray = props.giphys;
+  // console.log(giphyArray)
+
 	const giphyArray = props.giphys.map((giphy) => {
 		return (
 			<GiphyItem key={giphy.id} giphy={giphy} />
