@@ -3,13 +3,15 @@ import React from 'react';
 import GiphyItem from './GiphyItem';
 
 const Giphys = (props) => {
-  
-  // const giphyArray = props.giphys;
-  // console.log(giphyArray)
 
-	const giphyArray = props.giphys.map((giphy) => {
+	const giphys = props.giphys
+	const giphySelection = props.giphySelection;
+	const giphyArray = giphys.map((giphy) => {
 		return (
-			<GiphyItem key={giphy.id} giphy={giphy} />
+      <GiphyItem
+        giphySelection={giphySelection}
+        key={giphy.id}
+        giphy={giphy} />
 		);
 	});
 
