@@ -2,10 +2,10 @@
 // import registerServiceWorker from './registerServiceWorker';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 
-import request from "request";
+import request from 'request';
 
+import Searchbar from './components/Searchbar';
 import Giphys from './components/Giphys';
 import GiphySelected from './components/GiphySelected';
 
@@ -28,8 +28,11 @@ class App extends React.Component {
     this.state = {
       giphys: [],
       selectedGiphy: null
-    };  
-
+    };
+    this.giphyApiSearch('guitars');  
+  }
+    
+  giphyApiSearch(searchTerm) {
     request({
       url: `${baseURL}${searchTerm}&api_key=${apiKey}&limit=${searchLimit}`,
       json: true
@@ -48,16 +51,20 @@ class App extends React.Component {
         });
       }
     });
-
   }
+
+
+  
+
+
 
   render() {
     return (
       <div>
+        <Searchbar apiSearchTerm={ (term) => {this.giphyApiSearch(term)} } />
         <GiphySelected giphy={this.state.selectedGiphy} />
-        <Giphys 
-          giphySelection={ selectedGiphy => {this.setState({selectedGiphy})} }
-          giphys={this.state.giphys} />
+        <Giphys giphySelection={ (selectedGiphy) => {this.setState({selectedGiphy})} }
+        	giphys={this.state.giphys} />
       </div>
     );
   }
