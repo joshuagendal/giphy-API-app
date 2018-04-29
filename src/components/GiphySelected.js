@@ -11,7 +11,6 @@ const GiphySelected = ({giphy}) => {
 
 	console.log(giphy.title);
   const embedUrl = giphy.embed_url;
-	const imgUrl = giphy.images.fixed_height_still.url;
   
 
   return (

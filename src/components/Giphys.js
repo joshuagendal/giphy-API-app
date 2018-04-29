@@ -19,7 +19,7 @@ const Giphys = (props) => {
 		<div className="container-fluid">
 			<div className="row">
 				<div className="col-sm-8 col-sm-offset-2">
-					<ul style={{padding: 0}}>
+					<ul className="giphy-array-list">
 						{giphyArray}
 					</ul>
 				</div>
