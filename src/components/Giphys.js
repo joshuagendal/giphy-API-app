@@ -18,8 +18,8 @@ const Giphys = (props) => {
   return (
 		<div className="container-fluid">
 			<div className="row">
-				<div className="col-sm-8 col-sm-offset-1">
-					<ul>
+				<div className="col-sm-8 col-sm-offset-2">
+					<ul style={{padding: 0}}>
 						{giphyArray}
 					</ul>
 				</div>

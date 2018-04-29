@@ -6,7 +6,7 @@ const GiphyItem = (props) => {
   const embedUrl = giphy.embed_url;
 
   return (
-    <li onClick={() => giphySelection(giphy)} src={embedUrl} className="list-group-item">
+    <li onClick={() => giphySelection(giphy)} src={embedUrl} className="">
       <div className="">
         <iframe src={embedUrl} title="giphy" className="embed-giphy"></iframe>
       </div>

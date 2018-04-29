@@ -14,3 +14,7 @@ html, body {
 .embed-giphy {
   pointer-events: none;
 }
+
+.giphy-array-list {
+  padding: 0;
+}
