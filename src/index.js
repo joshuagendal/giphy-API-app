@@ -11,7 +11,6 @@ import GiphySelected from './components/GiphySelected';
 
 const apiKey = '8elrFOLxKeb0UUqADqARHCFh7gt95hKp';
 const baseURL = 'http://api.giphy.com/v1/gifs/search?q=';
-const searchTerm = 'guitars';
 const searchLimit = 14;
 
 
@@ -39,12 +38,13 @@ class App extends React.Component {
     }, (error, response, body) => {
       if (error) {
         console.log(`ERROR!: ${error}`);
-      } else if (body.meta.status != '200') {
+      } else if (body.meta.status !== 200) {
         console.log('SERVER ISSUE!');
         console.log('status: ', body.meta.status)
-      } else if (body.data.length === 0) {
+      } else if (!body.data) {
         console.log('ZERO RESULTS! Try Again!');
       } else {
+				console.log(body.data)
         this.setState({
           giphys: body.data,
           selectedGiphy: body.data[0]  

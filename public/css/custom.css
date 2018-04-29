@@ -10,3 +10,7 @@ html, body {
   margin-top: 5rem;
   width: 24rem;
 }
+
+.embed-giphy {
+  pointer-events: none;
+}

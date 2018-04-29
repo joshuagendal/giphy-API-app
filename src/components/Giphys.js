@@ -4,7 +4,7 @@ import GiphyItem from './GiphyItem';
 
 const Giphys = (props) => {
 
-	const giphys = props.giphys
+	const giphys = props.giphys;
 	const giphySelection = props.giphySelection;
 	const giphyArray = giphys.map((giphy) => {
 		return (

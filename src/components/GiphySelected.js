@@ -9,18 +9,25 @@ const GiphySelected = ({giphy}) => {
 		);
 	}
 
+	console.log(giphy.title);
+  const embedUrl = giphy.embed_url;
 	const imgUrl = giphy.images.fixed_height_still.url;
   
+
   return (
 		<div className="container-fluid">
 			<div className="row">
-				<div className="col-sm-8 col-sm-offset-2">
-					<div className="">
-						<img src={imgUrl} alt=""/>
-					</div>
-					<div className="">
-						<h2>{giphy.title}</h2>
-					</div>
+        <div className="col-sm-8 col-sm-offset-2">
+          <li src={embedUrl}>
+            <div className="">
+              <iframe src={embedUrl} title="giphy" className="embed-giphy"></iframe>
+            </div>
+							<div className="">
+              	<h2>{giphy.title}</h2>
+							</div>
+          </li>
+
+
 				</div>
 			</div>
 		</div>
