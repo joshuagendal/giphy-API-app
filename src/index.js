@@ -6,6 +6,7 @@ import request from 'request';
 
 import Searchbar from './components/Searchbar';
 import Giphys from './components/Giphys';
+import GiphysSelected from './components/GiphysSelected';
 
 const apiKey = '8elrFOLxKeb0UUqADqARHCFh7gt95hKp';
 const baseURL = 'http://api.giphy.com/v1/gifs/search?q=';
@@ -59,8 +60,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Searchbar apiSearch={(term) => {this.giphyApiSearch(term)}} />
+        <Searchbar giphyApiSearch={term => {this.giphyApiSearch(term)}} />
         <Giphys giphys={this.state.giphys} />
+        <GiphysSelected />
         <h1>REWRITE TIME</h1>
       </div>
     );
