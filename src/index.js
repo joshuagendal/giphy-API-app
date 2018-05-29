@@ -1,4 +1,3 @@
-// import App from './App';
 // import registerServiceWorker from './registerServiceWorker';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -7,7 +6,6 @@ import request from 'request';
 
 import Searchbar from './components/Searchbar';
 import Giphys from './components/Giphys';
-import GiphySelected from './components/GiphySelected';
 
 const apiKey = '8elrFOLxKeb0UUqADqARHCFh7gt95hKp';
 const baseURL = 'http://api.giphy.com/v1/gifs/search?q=';
@@ -26,7 +24,7 @@ class App extends React.Component {
 
     this.state = {
       giphys: [],
-      selectedGiphy: null
+      selectedGiphys: []
     };
     this.giphyApiSearch('guitars');  
   }
@@ -44,10 +42,10 @@ class App extends React.Component {
       } else if (!body.data) {
         console.log('ZERO RESULTS! Try Again!');
       } else {
-				console.log(body.data)
+				console.log('SUCCESS DATA', body.data)
         this.setState({
           giphys: body.data,
-          selectedGiphy: body.data[0]  
+          selectedGiphys: null
         });
       }
     });
@@ -61,10 +59,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Searchbar apiSearchTerm={ (term) => {this.giphyApiSearch(term)} } />
-        <GiphySelected giphy={this.state.selectedGiphy} />
-        <Giphys giphySelection={ (selectedGiphy) => {this.setState({selectedGiphy})} }
-        	giphys={this.state.giphys} />
+        <Searchbar apiSearch={(term) => {this.giphyApiSearch(term)}} />
+        <Giphys giphys={this.state.giphys} />
+        <h1>REWRITE TIME</h1>
       </div>
     );
   }

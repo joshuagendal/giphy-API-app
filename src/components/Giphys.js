@@ -1,27 +1,23 @@
 import React from 'react';
 
-import GiphyItem from './GiphyItem';
-
 const Giphys = (props) => {
-
 	const giphys = props.giphys;
-	const giphySelection = props.giphySelection;
-	const giphyArray = giphys.map((giphy) => {
+	
+	const giphyArray = giphys.map(giphy => {
 		return (
-      <GiphyItem
-        giphySelection={giphySelection}
-        key={giphy.id}
-        giphy={giphy} />
+			<div>
+				<h1>{giphy.title}</h1>
+				<iframe src={giphy.embed_url} frameborder="0"></iframe>
+			</div>
 		);
 	});
-
-  return (
+	
+	return (
 		<div className="container-fluid">
 			<div className="row">
-				<div className="col-sm-8 col-sm-offset-1">
-					<ul>
-						{giphyArray}
-					</ul>
+				<div className="col-sm-8 col-sm-offset-2">
+					<h1 style={{textDecoration: 'underline'}}>GIPHYS COMPONENT</h1>
+					{giphyArray}
 				</div>
 			</div>
 		</div>
