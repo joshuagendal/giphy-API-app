@@ -12,12 +12,8 @@ const apiKey = '8elrFOLxKeb0UUqADqARHCFh7gt95hKp';
 const baseURL = 'http://api.giphy.com/v1/gifs/search?q=';
 const searchLimit = 14;
 
-
-
 // giphy API search URL: 
 // baseURL + searchTerm + '&api_key=' + apiKey + '&limit=' + searchLimit
-
-
 
 class App extends React.Component {
   constructor(props) {
@@ -50,20 +46,28 @@ class App extends React.Component {
         });
       }
     });
-  }
-
-
-  
-
-
+	}
+	
+	addSelectedGiphyToState(giphy) {
+		if (!this.state.selectedGiphys) {
+			var selectedGiphys = [];
+			selectedGiphys.push(giphy);
+			this.setState({selectedGiphys});
+		} else {
+			var selectedGiphys = [...this.state.selectedGiphys];
+			selectedGiphys.push(giphy);
+			this.setState({selectedGiphys: selectedGiphys});
+		}
+	}
 
   render() {
     return (
       <div>
-        <Searchbar giphyApiSearch={term => {this.giphyApiSearch(term)}} />
-        <Giphys giphys={this.state.giphys} />
-        <GiphysSelected />
-        <h1>REWRITE TIME</h1>
+				<Searchbar giphyApiSearch={term => {this.giphyApiSearch(term)}} />
+				<Giphys 
+					giphys={this.state.giphys} 
+					addSelectedGiphyToState={selectedGiphy => this.addSelectedGiphyToState(selectedGiphy)} />
+				<GiphysSelected selectedGiphys={this.state.selectedGiphys} />
       </div>
     );
   }

@@ -4,12 +4,14 @@ import GiphyItem from './GiphyItem';
 
 const Giphys = (props) => {
 	const giphys = props.giphys;
+	const addSelectedGiphyToState = props.addSelectedGiphyToState;
 	
 	const giphyArray = giphys.map(giphy => {
 		return (
 			<GiphyItem 
 				key={giphy.id}
-				giphy={giphy} />
+				giphy={giphy}
+				addSelectedGiphyToState={addSelectedGiphyToState} />
 		);
 	});
 	
